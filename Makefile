@@ -6,7 +6,7 @@
 #    By: blee <blee@student.42.us.org>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/18 14:11:04 by blee              #+#    #+#              #
-#    Updated: 2018/04/23 15:20:55 by blee             ###   ########.fr        #
+#    Updated: 2018/04/23 18:30:40 by blee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ $(OBJS2): $(OBJ_DIR2)/%.o: $(SRC_DIR2)/%.c
 $(NAME1): $(OBJ_DIR1) $(OBJS1) $(LIBFT)
 	gcc -o $(NAME1) $(OBJS1) $(LIBFT)
 
-$(NAME2): $(OBJ_DIR2) $(OBJS2)
+$(NAME2): $(OBJ_DIR2) $(OBJS2) $(LIBFT)
 	gcc -o $(NAME2) $(OBJS2) $(LIBFT)
 
 clean:
