@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init_lst.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/23 15:15:31 by blee              #+#    #+#             */
-/*   Updated: 2018/04/24 15:37:21 by blee             ###   ########.fr       */
+/*   Created: 2018/04/24 16:26:49 by blee              #+#    #+#             */
+/*   Updated: 2018/04/24 20:43:00 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+t_num	*ps_newlst(int num)
 {
-	int		i;
+	t_num	*new;
 
-	i = 1;
+	new = (t_num*)malloc(sizeof(t_num));
+	if (!new)
+		return (NULL);
+	new->num = num;
+	new->next = NULL;
+	return (new);
+}
 
-	while (i < ac)
-	{
-		ft_printf("%d\n", ft_atoi(av[i]));
-		i++;
-	}
-	return (0);
+void	ps_addlst(t_num *lst, t_num *new)
+{
+	t_num	*temp;
+
+	temp = lst;
+	while (temp->next)
+		temp = temp->next;
+	temp->next = new;
+
 }

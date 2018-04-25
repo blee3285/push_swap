@@ -6,7 +6,7 @@
 #    By: blee <blee@student.42.us.org>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/18 14:11:04 by blee              #+#    #+#              #
-#    Updated: 2018/04/23 18:30:40 by blee             ###   ########.fr        #
+#    Updated: 2018/04/24 17:40:33 by blee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ LIBFT = ./libft/libft.a
 
 SRC_FILES1 = main.c
 
-SRC_FILES2 = main.c
+SRC_FILES2 = main.c \
+			 init_lst.c
 
 SRCS1 = $(addprefix $(SRC_DIR1)/, $(SRC_FILES1))
 OBJS1 = $(addprefix $(OBJ_DIR1)/, $(SRC_FILES1:.c=.o))
