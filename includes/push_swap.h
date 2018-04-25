@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/23 14:43:55 by blee              #+#    #+#             */
-/*   Updated: 2018/04/24 20:42:37 by blee             ###   ########.fr       */
+/*   Updated: 2018/04/24 21:17:15 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,6 @@ typedef struct		s_num
 //checker
 t_num	*ps_newlst(int num);
 void	ps_addlst(t_num *lst, t_num *new);
+void	ps_buildlst(t_num **lst, char *num);
 
 #endif

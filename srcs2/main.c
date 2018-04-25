@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/23 15:16:32 by blee              #+#    #+#             */
-/*   Updated: 2018/04/24 20:45:40 by blee             ###   ########.fr       */
+/*   Updated: 2018/04/24 21:20:47 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,29 +31,15 @@ void	ps_freelst(t_num *lst)
 int	main(int ac, char **av)
 {
 	int		i;
-	int		j;
 	t_num	*list;
-	t_num	*new;
 
 	i = 1;
-	j = 0;
 	list = NULL;
-	new = NULL;
+	if (ac < 2)
+		return (1);
 	while (i < ac)
 	{
-		j = 0;
-		while (av[i][j])
-		{
-			if (ft_isdigit(av[i][j]))
-			{
-				new = ps_newlst(ft_atoi(&av[i][j]));
-				if (!list)
-					list = new;
-				else
-					ps_addlst(list, new);
-			}
-			j++;
-		}
+		ps_buildlst(&list, av[i]);
 		i++;
 	}
 	print_lst(list);
