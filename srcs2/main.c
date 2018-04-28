@@ -6,11 +6,11 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/23 15:16:32 by blee              #+#    #+#             */
-/*   Updated: 2018/04/24 21:20:47 by blee             ###   ########.fr       */
+/*   Updated: 2018/04/27 18:54:02 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 void	print_lst(t_num *lst)
 {
@@ -32,9 +32,11 @@ int	main(int ac, char **av)
 {
 	int		i;
 	t_num	*list;
+	char	*line;
 
 	i = 1;
 	list = NULL;
+	line = NULL;
 	if (ac < 2)
 		return (1);
 	while (i < ac)
@@ -44,6 +46,12 @@ int	main(int ac, char **av)
 	}
 	print_lst(list);
 	ft_putchar('\n');
+	while ((i = get_next_line(1, &line)))
+	{
+		ft_printf("cmd: %s\n", line);
+		if (i == -1)
+			break;
+	}
 	ps_freelst(list);
 	return (0);
 }

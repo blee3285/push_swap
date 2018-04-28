@@ -6,11 +6,11 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 16:26:49 by blee              #+#    #+#             */
-/*   Updated: 2018/04/24 21:24:53 by blee             ###   ########.fr       */
+/*   Updated: 2018/04/27 16:38:48 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 t_num	*ps_newlst(int num)
 {
