@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/23 15:16:32 by blee              #+#    #+#             */
-/*   Updated: 2018/04/27 18:54:02 by blee             ###   ########.fr       */
+/*   Updated: 2018/04/28 16:20:54 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	main(int ac, char **av)
 	}
 	print_lst(list);
 	ft_putchar('\n');
-	while ((i = get_next_line(1, &line)))
+	while ((i = get_next_line(0, &line)))
 	{
 		ft_printf("cmd: %s\n", line);
 		if (i == -1)

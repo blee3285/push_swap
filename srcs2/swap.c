@@ -1,33 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/27 16:22:44 by blee              #+#    #+#             */
-/*   Updated: 2018/04/28 18:58:33 by blee             ###   ########.fr       */
+/*   Created: 2018/04/28 16:45:50 by blee              #+#    #+#             */
+/*   Updated: 2018/04/28 18:29:45 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include "checker.h"
 
-#include "../libft/includes/libft.h"
-
-typedef struct		s_num
+void	ps_swap(t_num *lst)
 {
-	int				num;
-	struct s_num	*next;
-}					t_num;
+	t_num	*temp;
 
-t_num	*ps_newlst(int num);
-void	ps_addlst(t_num *lst, t_num *new);
-void	ps_buildlst(t_num **lst, char *num);
+	temp = lst->next;
+	lst->next = temp->next;
+	temp->next = lst;
+}
 
-void	*(*init_cmds()(t_num*, t_num*));
-void	ps_sa(t_num *a, t_num *b);
-void	ps_sb(t_num *a, t_num *b);
-void	ps_ss(t_num *a, t_num *b);
+void	ps_sa(t_num *a, t_num *b)
+{
+	t_num *temp;
 
-#endif
+	temp = b;
+	ps_swap(a);
+}
+
+void	ps_sb(t_num *a, t_num *b)
+{
+	t_num *temp;
+
+	temp = a;
+	ps_swap(b);
+}
+
+void	ps_ss(t_num *a, t_num *b)
+{
+	ps_swap(a);
+	ps_swap(b);
+}
