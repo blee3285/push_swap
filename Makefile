@@ -6,7 +6,7 @@
 #    By: blee <blee@student.42.us.org>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/18 14:11:04 by blee              #+#    #+#              #
-#    Updated: 2018/04/28 18:56:56 by blee             ###   ########.fr        #
+#    Updated: 2018/05/02 18:32:53 by blee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,11 @@ SRC_FILES1 = main.c
 
 SRC_FILES2 = main.c \
 			 init_lst.c \
-			 cmds.c
+			 cmds.c \
+			 swap.c \
+			 push.c \
+			 rotate.c \
+			 rrotate.c
 
 SRCS1 = $(addprefix $(SRC_DIR1)/, $(SRC_FILES1))
 OBJS1 = $(addprefix $(OBJ_DIR1)/, $(SRC_FILES1:.c=.o))

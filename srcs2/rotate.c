@@ -1,47 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/28 16:45:50 by blee              #+#    #+#             */
-/*   Updated: 2018/05/02 16:35:52 by blee             ###   ########.fr       */
+/*   Created: 2018/05/02 17:36:55 by blee              #+#    #+#             */
+/*   Updated: 2018/05/02 17:50:06 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-void	ps_swap(t_num **lst)
+void	ps_rotate(t_num **lst)
 {
-	t_num	*head;
+	t_num	*temp;
+	t_num	*node;
+
+	if (!*lst)
+		return ;
+	temp = *lst;
+	node = *lst;
+	if (!(temp->next))
+		return ;
+	*lst = temp->next;
+	while (temp->next)
+		temp = temp->next;
+	temp->next = node;
+	node->next = NULL;
+}
+
+void	ps_ra(t_num **a, t_num **b)
+{
 	t_num	*temp;
 
-	head = *lst;
-	temp = head->next;
-	head->next = temp->next;
-	temp->next = head;
-	*lst = temp;
+	temp = *b;
+	ps_rotate(a);
 }
 
-void	ps_sa(t_num **a, t_num **b)
+void	ps_rb(t_num **a, t_num **b)
 {
-	t_num	**temp;
+	t_num	*temp;
 
-	temp = b;
-	ps_swap(a);
+	temp = *a;
+	ps_rotate(b);
 }
 
-void	ps_sb(t_num **a, t_num **b)
+void	ps_rr(t_num **a, t_num **b)
 {
-	t_num	**temp;
-
-	temp = a;
-	ps_swap(b);
-}
-
-void	ps_ss(t_num **a, t_num **b)
-{
-	ps_swap(a);
-	ps_swap(b);
+	ps_rotate(a);
+	ps_rotate(b);
 }
