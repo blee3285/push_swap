@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 16:26:49 by blee              #+#    #+#             */
-/*   Updated: 2018/04/27 16:38:48 by blee             ###   ########.fr       */
+/*   Updated: 2018/05/05 16:29:54 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,13 @@ void	ps_buildlst(t_num **lst, char *num)
 		}
 		i++;
 	}
+}
+
+void	ps_freelst(t_num *lst)
+{
+	if (!lst)
+		return ;
+	if (lst->next)
+		ps_freelst(lst->next);
+	free(lst);
 }

@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/27 16:22:44 by blee              #+#    #+#             */
-/*   Updated: 2018/05/02 18:32:36 by blee             ###   ########.fr       */
+/*   Updated: 2018/05/05 18:52:05 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,14 @@ typedef	void		(*swapf)(t_num**, t_num**);
 t_num	*ps_newlst(int num);
 void	ps_addlst(t_num *lst, t_num *new);
 void	ps_buildlst(t_num **lst, char *num);
+void	ps_freelst(t_num *lst);
 
-swapf	*init_cmds();
+t_num	*ps_check_args(int ac, char **av);
+
+swapf	*ps_init_cmds();
+char	**ps_cmd_names();
+int		cmd_id(char* name);
+void	ps_free_names(char **names);
 void	ps_sa(t_num **a, t_num **b);
 void	ps_sb(t_num **a, t_num **b);
 void	ps_ss(t_num **a, t_num **b);
@@ -39,5 +45,7 @@ void	ps_rr(t_num **a, t_num **b);
 void	ps_rra(t_num **a, t_num **b);
 void	ps_rrb(t_num **a, t_num **b);
 void	ps_rrr(t_num **a, t_num **b);
+
+int		ps_read_cmds(t_num **lst_a);
 
 #endif

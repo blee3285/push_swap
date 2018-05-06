@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/23 15:16:32 by blee              #+#    #+#             */
-/*   Updated: 2018/05/02 18:34:36 by blee             ###   ########.fr       */
+/*   Updated: 2018/05/05 19:03:57 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,6 @@ void	print_lst(t_num *lst)
 		print_lst(lst->next);
 }
 
-void	ps_freelst(t_num *lst)
-{
-	if (!lst)
-		return ;
-	if (lst->next)
-		ps_freelst(lst->next);
-	free(lst);
-}
-
 int	main(int ac, char **av)
 {
 	int		i;
@@ -38,6 +29,7 @@ int	main(int ac, char **av)
 	t_num	*lst_b;
 	char	*line;
 	swapf	*cmds;
+	char	**names;
 
 	i = 1;
 	lst_a = NULL;
@@ -45,22 +37,21 @@ int	main(int ac, char **av)
 	line = NULL;
 	if (ac < 2)
 		return (1);
-	cmds = init_cmds();
-	while (i < ac)
+	cmds = ps_init_cmds();
+	names = ps_cmd_names();
+	lst_a = ps_check_args(ac, av);
+	if (!lst_a)
 	{
-		ps_buildlst(&lst_a, av[i]);
-		i++;
+		ft_printf("Error\n");
+		return (0);
 	}
-	print_lst(lst_a);
-	ft_putchar('\n');
-	cmds['p' + 'b'](&lst_a, &lst_b);
-	cmds['p' + 'b'](&lst_a, &lst_b);
-	cmds['p' + 'b'](&lst_a, &lst_b);
-	cmds['r' + 'r' + 'r'](&lst_a, &lst_b);
-	print_lst(lst_a);
-	ft_putchar('\n');
-	print_lst(lst_b);
-	ft_putchar('\n');
+	i = ps_read_cmds(&lst_a);
+	if (i == 1)
+		ft_printf("OK\n");
+	else if (i == 0)
+		ft_printf("KO\n");
+	else if (i == -1)
+		ft_printf("Error\n");
 	/*
 	while ((i = get_next_line(0, &line)))
 	{
