@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/05 17:13:05 by blee              #+#    #+#             */
-/*   Updated: 2018/05/05 19:01:47 by blee             ###   ########.fr       */
+/*   Updated: 2018/05/07 19:02:31 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@ int		valid_cmd(char *cmd, char **names)
 	int		id;
 
 	id = cmd_id(cmd);
-	if (id < 400 && names[id])
+	if ((id > 0 && id < 49) && names[id] != NULL)
+	{
 		if (ft_strcmp(cmd, names[id]) == 0)
 			return (1);
+	}
 	return (0);
 }
 
@@ -36,7 +38,12 @@ int		is_sorted(t_num *lst_a, t_num *lst_b)
 	int		num;
 	t_num	*temp;
 
-	if (!lst_a || lst_b)
+	if (lst_b)
+	{
+		ps_freelst(lst_b);
+		return (0);
+	}
+	if (!lst_a)
 		return (0);
 	num = lst_a->num;
 	temp = lst_a->next;
@@ -51,27 +58,37 @@ int		is_sorted(t_num *lst_a, t_num *lst_b)
 	return (1);
 }
 
-
-int		ps_read_cmds(t_num **lst_a)
+int		ps_do_cmds(t_num **lst_a, t_num **lst_b)
 {
 	int		ret;
 	char	*buff;
-	t_num	*lst_b;
 	swapf	*cmds;
 	char	**names;
 
-	lst_b = NULL;
 	cmds = ps_init_cmds();
 	names = ps_cmd_names();
-	while ((ret = get_next_line(0, &buff)) && ret != -1)
+	ret = 0;
+	while ((ret != -1) && (ret = get_next_line(0, &buff)))
 	{
 		if (valid_cmd(buff, names))
-			do_cmd(buff, lst_a, &lst_b, cmds);
+			do_cmd(buff, lst_a, lst_b, cmds);
 		else
 			ret = -1;
 	}
 	free(cmds);
-	//ps_free_names(names);
+	ps_free_names(names);
+	if (ret == -1)
+		return (-1);
+	return (0);
+}
+
+int		ps_read_cmds(t_num **lst_a)
+{
+	int		ret;
+	t_num	*lst_b;
+
+	lst_b = NULL;
+	ret = ps_do_cmds(lst_a, &lst_b);
 	if (ret == -1)
 		return (-1);
 	if (is_sorted(*lst_a, lst_b))

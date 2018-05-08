@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/02 17:06:11 by blee              #+#    #+#             */
-/*   Updated: 2018/05/02 17:27:43 by blee             ###   ########.fr       */
+/*   Updated: 2018/05/07 15:24:43 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ps_push(t_num **a, t_num **b)
 	t_num	*head;
 	t_num	*temp;
 
+	if(!(*a))
+		return ;
 	head = *a;
 	temp = head->next;
 	*a = temp;

@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/28 17:17:00 by blee              #+#    #+#             */
-/*   Updated: 2018/05/05 16:08:36 by blee             ###   ########.fr       */
+/*   Updated: 2018/05/07 17:23:04 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,21 @@ swapf	*ps_init_cmds()
 {
 	swapf	*cmds;
 
-	cmds = (swapf*)malloc(sizeof(swapf*) * 400);
+	cmds = (swapf*)malloc(sizeof(swapf*) * 50);
 	if (!cmds)
 		return (NULL);
-	ft_bzero(cmds, sizeof(swapf*) * 400);
-	cmds['s' + 'a'] = &ps_sa;
-	cmds['s' + 'b'] = &ps_sb;
-	cmds['s' + 's'] = &ps_ss;
-	cmds['p' + 'a'] = &ps_pa;
-	cmds['p' + 'b'] = &ps_pb;
-	cmds['r' + 'a'] = &ps_ra;
-	cmds['r' + 'b'] = &ps_rb;
-	cmds['r' + 'r'] = &ps_rr;
-	cmds['r' + 'r' + 'a'] = &ps_rra;
-	cmds['r' + 'r' + 'b'] = &ps_rrb;
-	cmds['r' + 'r' + 'r'] = &ps_rrr;
+	ft_bzero(cmds, sizeof(swapf*) * 50);
+	cmds[cmd_id("sa")] = &ps_sa;
+	cmds[cmd_id("sb")] = &ps_sb;
+	cmds[cmd_id("ss")] = &ps_ss;
+	cmds[cmd_id("pa")] = &ps_pa;
+	cmds[cmd_id("pb")] = &ps_pb;
+	cmds[cmd_id("ra")] = &ps_ra;
+	cmds[cmd_id("rb")] = &ps_rb;
+	cmds[cmd_id("rr")] = &ps_rr;
+	cmds[cmd_id("rra")] = &ps_rra;
+	cmds[cmd_id("rrb")] = &ps_rrb;
+	cmds[cmd_id("rrr")] = &ps_rrr;
 	return (cmds);
 }
 
@@ -38,21 +38,21 @@ char	**ps_cmd_names()
 {
 	char	**names;
 
-	names = (char**)malloc(sizeof(char*) * 400);
+	names = (char**)malloc(sizeof(char*) * 50);
 	if (!names)
 		return (NULL);
-	ft_bzero(names, sizeof(char*) * 400);
-	names['s' + 'a'] = ft_strdup("sa");
-	names['s' + 'b'] = ft_strdup("sb");
-	names['s' + 's'] = ft_strdup("ss");
-	names['p' + 'a'] = ft_strdup("pa");
-	names['p' + 'b'] = ft_strdup("pb");
-	names['r' + 'a'] = ft_strdup("ra");
-	names['r' + 'b'] = ft_strdup("rb");
-	names['r' + 'r'] = ft_strdup("rr");
-	names['r' + 'r' + 'a'] = ft_strdup("rra");
-	names['r' + 'r' + 'b'] = ft_strdup("rrb");
-	names['r' + 'r' + 'r'] = ft_strdup("rrr");
+	ft_bzero(names, sizeof(char*) * 50);
+	names[cmd_id("sa")] = ft_strdup("sa");
+	names[cmd_id("sb")] = ft_strdup("sb");
+	names[cmd_id("ss")] = ft_strdup("ss");
+	names[cmd_id("pa")] = ft_strdup("pa");
+	names[cmd_id("pb")] = ft_strdup("pb");
+	names[cmd_id("ra")] = ft_strdup("ra");
+	names[cmd_id("rb")] = ft_strdup("rb");
+	names[cmd_id("rr")] = ft_strdup("rr");
+	names[cmd_id("rra")] = ft_strdup("rra");
+	names[cmd_id("rrb")] = ft_strdup("rrb");
+	names[cmd_id("rrr")] = ft_strdup("rrr");
 	return (names);
 }
 
@@ -67,7 +67,18 @@ int		cmd_id(char* name)
 		return (0);
 	while (name[i])
 	{
-		id += name[i];
+		if (name[i] == 's')
+			id += 24;
+		else if (name[i] == 'p')
+			id += 20;
+		else if (name[i] == 'r')
+			id += 5;
+		else if (name[i] == 'a')
+			id += 1;
+		else if (name[i] == 'b')
+			id += 2;
+		else
+			id -= 50;
 		i++;
 	}
 	return (id);
@@ -75,17 +86,16 @@ int		cmd_id(char* name)
 
 void	ps_free_names(char **names)
 {
-	free(names['s' + 'a']);
-	free(names['s' + 'b']);
-	free(names['s' + 's']);
-	free(names['p' + 'a']);
-	free(names['p' + 'b']);
-	free(names['r' + 'a']);
-	free(names['r' + 'b']);
-	free(names['r' + 'r']);
-	free(names['r' + 'r' + 'a']);
-	free(names['r' + 'r' + 'b']);
-	free(names['r' + 'r' + 'b']);
-	free(names['r' + 'r' + 'r']);
+	free(names[cmd_id("sa")]);
+	free(names[cmd_id("sb")]);
+	free(names[cmd_id("ss")]);
+	free(names[cmd_id("pa")]);
+	free(names[cmd_id("pb")]);
+	free(names[cmd_id("ra")]);
+	free(names[cmd_id("rb")]);
+	free(names[cmd_id("rr")]);
+	free(names[cmd_id("rra")]);
+	free(names[cmd_id("rrb")]);
+	free(names[cmd_id("rrr")]);
 	free(names);
 }
