@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/05 17:13:05 by blee              #+#    #+#             */
-/*   Updated: 2018/05/07 19:02:31 by blee             ###   ########.fr       */
+/*   Updated: 2018/05/09 19:21:08 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ void	do_cmd(char *cmd, t_num **lst_a, t_num **lst_b, swapf *cmds)
 
 	id = cmd_id(cmd);
 	cmds[id](lst_a, lst_b);
+	ft_printf("Exec %s\n", cmd);
+	ps_print_lst(*lst_a, *lst_b);
 }
 
 int		is_sorted(t_num *lst_a, t_num *lst_b)
@@ -88,6 +90,8 @@ int		ps_read_cmds(t_num **lst_a)
 	t_num	*lst_b;
 
 	lst_b = NULL;
+	ft_printf("init:\n");
+	ps_print_lst(*lst_a, lst_b);
 	ret = ps_do_cmds(lst_a, &lst_b);
 	if (ret == -1)
 		return (-1);

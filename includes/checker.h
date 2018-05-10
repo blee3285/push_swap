@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/27 16:22:44 by blee              #+#    #+#             */
-/*   Updated: 2018/05/05 18:52:05 by blee             ###   ########.fr       */
+/*   Updated: 2018/05/09 19:15:34 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,7 @@ void	ps_rrb(t_num **a, t_num **b);
 void	ps_rrr(t_num **a, t_num **b);
 
 int		ps_read_cmds(t_num **lst_a);
+
+void	ps_print_lst(t_num *lst_a, t_num *lst_b);
 
 #endif
