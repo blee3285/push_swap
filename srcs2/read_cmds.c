@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/05 17:13:05 by blee              #+#    #+#             */
-/*   Updated: 2018/05/09 19:21:08 by blee             ###   ########.fr       */
+/*   Updated: 2018/05/12 15:58:34 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,17 @@ int		valid_cmd(char *cmd, char **names)
 	return (0);
 }
 
-void	do_cmd(char *cmd, t_num **lst_a, t_num **lst_b, swapf *cmds)
+void	do_cmd(char *cmd, t_num **lst_a, t_num **lst_b, swapf *cmds, int v)
 {
 	int		id;
 
 	id = cmd_id(cmd);
 	cmds[id](lst_a, lst_b);
-	ft_printf("Exec %s\n", cmd);
-	ps_print_lst(*lst_a, *lst_b);
+	if (v)
+	{
+		ft_printf("Exec %s:\n", cmd);
+		ps_print_lst(*lst_a, *lst_b);
+	}
 }
 
 int		is_sorted(t_num *lst_a, t_num *lst_b)
@@ -48,7 +51,7 @@ int		is_sorted(t_num *lst_a, t_num *lst_b)
 	if (!lst_a)
 		return (0);
 	num = lst_a->num;
-	temp = lst_a->next;
+	temp = lst_a;
 	while (temp->next)
 	{
 		temp = temp->next;
@@ -60,7 +63,7 @@ int		is_sorted(t_num *lst_a, t_num *lst_b)
 	return (1);
 }
 
-int		ps_do_cmds(t_num **lst_a, t_num **lst_b)
+int		ps_do_cmds(t_num **lst_a, t_num **lst_b, int v)
 {
 	int		ret;
 	char	*buff;
@@ -73,7 +76,7 @@ int		ps_do_cmds(t_num **lst_a, t_num **lst_b)
 	while ((ret != -1) && (ret = get_next_line(0, &buff)))
 	{
 		if (valid_cmd(buff, names))
-			do_cmd(buff, lst_a, lst_b, cmds);
+			do_cmd(buff, lst_a, lst_b, cmds, v);
 		else
 			ret = -1;
 	}
@@ -84,15 +87,18 @@ int		ps_do_cmds(t_num **lst_a, t_num **lst_b)
 	return (0);
 }
 
-int		ps_read_cmds(t_num **lst_a)
+int		ps_read_cmds(t_num **lst_a, int flag)
 {
 	int		ret;
 	t_num	*lst_b;
 
 	lst_b = NULL;
-	ft_printf("init:\n");
-	ps_print_lst(*lst_a, lst_b);
-	ret = ps_do_cmds(lst_a, &lst_b);
+	if (flag)
+	{
+		ft_putstr("Init a and b:\n");
+		ps_print_lst(*lst_a, lst_b);
+	}
+	ret = ps_do_cmds(lst_a, &lst_b, flag);
 	if (ret == -1)
 		return (-1);
 	if (is_sorted(*lst_a, lst_b))

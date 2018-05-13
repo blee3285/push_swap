@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/27 16:22:44 by blee              #+#    #+#             */
-/*   Updated: 2018/05/09 19:15:34 by blee             ###   ########.fr       */
+/*   Updated: 2018/05/12 17:46:27 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,10 @@ void	ps_rra(t_num **a, t_num **b);
 void	ps_rrb(t_num **a, t_num **b);
 void	ps_rrr(t_num **a, t_num **b);
 
-int		ps_read_cmds(t_num **lst_a);
+int		ps_read_cmds(t_num **lst_a, int	flag);
 
 void	ps_print_lst(t_num *lst_a, t_num *lst_b);
+
+int		int_max_check(char *num);
 
 #endif

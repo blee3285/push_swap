@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/05 16:12:51 by blee              #+#    #+#             */
-/*   Updated: 2018/05/09 18:28:28 by blee             ###   ########.fr       */
+/*   Updated: 2018/05/12 18:31:08 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,19 @@
 
 int		is_valid(char *str)
 {
-	int	i;
+	int			i;
 
 	i = 0;
 	while (str[i])
 	{
-		if (ft_isdigit(str[i]) || str[i] == ' ')
+		if (ft_isdigit(str[i]) || str[i] == '-')
+		{
+			if (!int_max_check(&str[i]))
+				return (0);
+			while (ft_isdigit(str[i]) || str[i] == '-')
+				i++;
+		}
+		else if (str[i] == ' ')
 			i++;
 		else
 			return (0);
@@ -46,12 +53,10 @@ int		has_dup(t_num *lst)
 int		no_dups(t_num *lst)
 {
 	t_num	*temp;
-	int		i;
 
 	if (!lst)
 		return (0);
 	temp = lst;
-	i = temp->num;
 	while (temp->next)
 	{
 		if (has_dup(temp))
@@ -70,7 +75,9 @@ t_num	*ps_check_args(int ac, char **av)
 	lst = NULL;
 	i = 1;
 	ret = 1;
-	while (i < ac)
+	if (av[1][0] == '-' && av[1][1] == 'v')
+		i++;
+	while (i < ac && ret)
 	{
 		if (is_valid(av[i]))
 			ps_buildlst(&lst, av[i]);
