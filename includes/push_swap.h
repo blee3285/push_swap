@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/23 14:43:55 by blee              #+#    #+#             */
-/*   Updated: 2018/04/24 21:17:15 by blee             ###   ########.fr       */
+/*   Updated: 2018/05/17 15:30:58 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,17 @@ typedef struct		s_num
 	struct s_num	*next;
 }					t_num;
 
-//checker
+typedef void		(*swapf)(t_num**, t_num**);
+
 t_num	*ps_newlst(int num);
 void	ps_addlst(t_num *lst, t_num *new);
 void	ps_buildlst(t_num **lst, char *num);
+void	ps_freelst(t_num *lst);
+
+
+t_num	*ps_check_args(int ac, char **av);
+int		ps_error();
+
+int		int_max_check(char *num);
 
 #endif

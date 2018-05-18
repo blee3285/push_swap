@@ -6,7 +6,7 @@
 #    By: blee <blee@student.42.us.org>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/18 14:11:04 by blee              #+#    #+#              #
-#    Updated: 2018/05/12 17:46:47 by blee             ###   ########.fr        #
+#    Updated: 2018/05/17 15:30:12 by blee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,10 @@ OBJ_DIR2 = ./objs2
 LIBFT = ./libft/libft.a
 
 
-SRC_FILES1 = main.c
+SRC_FILES1 = main.c \
+			 init_lst.c \
+			 check_args.c \
+			 int_size.c
 
 SRC_FILES2 = main.c \
 			 init_lst.c \
