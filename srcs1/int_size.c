@@ -6,11 +6,11 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/12 17:20:26 by blee              #+#    #+#             */
-/*   Updated: 2018/05/12 18:06:05 by blee             ###   ########.fr       */
+/*   Updated: 2018/05/19 17:29:29 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "push_swap.h"
 
 int		check_ten_digit(char *num, int neg)
 {

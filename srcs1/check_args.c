@@ -6,11 +6,11 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/05 16:12:51 by blee              #+#    #+#             */
-/*   Updated: 2018/05/12 18:31:08 by blee             ###   ########.fr       */
+/*   Updated: 2018/05/19 17:28:58 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "push_swap.h"
 
 int		is_valid(char *str)
 {

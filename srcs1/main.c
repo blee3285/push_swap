@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/23 15:15:31 by blee              #+#    #+#             */
-/*   Updated: 2018/05/17 16:17:41 by blee             ###   ########.fr       */
+/*   Updated: 2018/05/19 15:55:31 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,16 @@ void	print_lst(t_num *lst)
 		return ;
 	if (lst->next)
 		print_lst(lst->next);
+}
+
+void	print_order(t_num *lst)
+{
+	if (lst)
+		ft_printf("%d ", lst->order);
+	else
+		return ;
+	if (lst->next)
+		print_order(lst->next);
 }
 
 int		ps_error()
@@ -43,5 +53,8 @@ int	main(int ac, char **av)
 	if (!lst_a)
 		return (ps_error());
 	print_lst(lst_a);
+	ft_putchar('\n');
+	print_order(lst_a);
+	ft_putchar('\n');
 	return (0);
 }
