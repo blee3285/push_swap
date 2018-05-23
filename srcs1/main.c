@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/23 15:15:31 by blee              #+#    #+#             */
-/*   Updated: 2018/05/19 15:55:31 by blee             ###   ########.fr       */
+/*   Updated: 2018/05/22 13:57:40 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,12 @@ int	main(int ac, char **av)
 	lst_a = ps_check_args(ac, av);
 	if (!lst_a)
 		return (ps_error());
+	ft_printf("Input:\n");
 	print_lst(lst_a);
 	ft_putchar('\n');
-	print_order(lst_a);
+	ps_small_sorts(&lst_a, &lst_b, ps_lst_size(lst_a));
+	print_lst(lst_a);
 	ft_putchar('\n');
+	ps_freelst(lst_a);
 	return (0);
 }

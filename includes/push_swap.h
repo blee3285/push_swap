@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/23 14:43:55 by blee              #+#    #+#             */
-/*   Updated: 2018/05/19 17:42:56 by blee             ###   ########.fr       */
+/*   Updated: 2018/05/22 13:40:17 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,9 @@ int		ps_error();
 
 int		int_max_check(char *num);
 
-int		int_max_check(char *num);
+int		ps_small_sorts(t_num **lst_a, t_num **lst_b, int len);
+int		ps_lst_size(t_num *lst);
+void	ps_sort_two(t_num **lst_a, t_num **lst_b);
+void	ps_sort_tree(t_num **lst_a, t_num **lst_b);
 
 #endif

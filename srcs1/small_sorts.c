@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/17 16:16:57 by blee              #+#    #+#             */
-/*   Updated: 2018/05/19 17:48:18 by blee             ###   ########.fr       */
+/*   Updated: 2018/05/22 16:40:47 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,19 @@ int		ps_lst_size(t_num *lst)
 void	ps_sort_two(t_num **lst_a, t_num **lst_b)
 {
 	t_num	*a;
-	t_num	*temp;
 
 	a = *lst_a;
-	temp = a->next;
-	if (a->num > temp->num)
+	if (a->order == 2)
 		ps_sa(lst_a, lst_b);
 }
 
 void	ps_sort_three(t_num **lst_a, t_num **lst_b)
 {
-	t_num	*a;
-
-	a = *lst_a;
-	if (a->order ==  2)
+	if ((*lst_a)->next->order == 3)
+		ps_rra(lst_a, lst_b);
+	else if ((*lst_a)->order == 3)
+		ps_ra(lst_a, lst_b);
+	if ((*lst_a)->order == 2)
 		ps_sa(lst_a, lst_b);
 }
 
