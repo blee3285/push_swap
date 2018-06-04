@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/19 17:10:42 by blee              #+#    #+#             */
-/*   Updated: 2018/05/31 17:56:28 by blee             ###   ########.fr       */
+/*   Updated: 2018/06/03 15:46:35 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,28 +39,35 @@ int		idx_dist(int order, int idx, int len)
 	return (dist);
 }
 
+int		num_idx(t_num *lst, int order)
+{
+	int		i;
+
+	i = 0;
+	while (lst->order != order)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
+}
+
 int		ps_unordered(t_num *lst, int len)
 {
 	int		value;
-	int		idx;
-	int		order;
-	t_num	*temp;
+	int		idx_a;
+	int		idx_b;
+	int		cur;
 
 	value = 0;
-	order = 1;
-	if (len == 0)
-		return (0);
-	while (order <= len)
+	idx_a = 0;
+	cur = len;
+	while (cur > 0)
 	{
-		temp = lst;
-		idx = 1;
-		while (temp && (temp->order != order))
-		{
-			idx++;
-			temp = temp->next;
-		}
-		value += idx_dist(order, idx, len);
-		order++;
+		idx_b = num_idx(lst, cur);
+		value += idx_dist(idx_a, idx_b, len);
+		idx_a = idx_b;
+		cur--;
 	}
 	return (value);
 }

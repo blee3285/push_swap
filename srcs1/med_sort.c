@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/22 16:01:34 by blee              #+#    #+#             */
-/*   Updated: 2018/05/31 15:10:24 by blee             ###   ########.fr       */
+/*   Updated: 2018/06/03 15:22:38 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	push_smallest(t_num **lst_a, t_num **lst_b, int len, int curr)
 		dist++;
 		temp = temp->next;
 	}
-	rot_to_smallest(lst_a, lst_b, curr, (dist < (len/2)));
+	rot_to_smallest(lst_a, lst_b, curr, (dist <= (len / 2)));
 	ps_pb(lst_a, lst_b);
 }
 
