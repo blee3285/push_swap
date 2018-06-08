@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/23 15:15:31 by blee              #+#    #+#             */
-/*   Updated: 2018/06/03 15:44:58 by blee             ###   ########.fr       */
+/*   Updated: 2018/06/07 17:50:30 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int	main(int ac, char **av)
 		ps_med_sort(&lst_a, &lst_b, size);
 	else
 		ps_small_sorts(&lst_a, &lst_b, size);
+	print_lst(lst_a);
 	ps_freelst(lst_a);
 	return (0);
 }

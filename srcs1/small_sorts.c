@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/17 16:16:57 by blee              #+#    #+#             */
-/*   Updated: 2018/05/31 15:12:38 by blee             ###   ########.fr       */
+/*   Updated: 2018/06/07 17:53:43 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,29 @@ void	ps_sort_two(t_num **lst_a, t_num **lst_b)
 		ps_sa(lst_a, lst_b);
 }
 
-void	ps_sort_three(t_num **lst_a, t_num **lst_b, int len)
+void	ps_sort_three(t_num **lst_a, t_num **lst_b)
 {
-	if ((*lst_a)->next->order == len)
+	int		biggest;
+	int		len;
+	t_num	*temp;
+
+	biggest = 0;
+	len = 0;
+	temp = *lst_a;
+	while (temp)
+	{
+		if (temp->order > biggest)
+			biggest = temp->order;
+		len++;
+		temp = temp->next;
+	}
+	if (len > 3)
+		return ;
+	if ((*lst_a)->next->order == biggest)
 		ps_rra(lst_a, lst_b);
-	else if ((*lst_a)->order == len)
+	else if ((*lst_a)->order == biggest)
 		ps_ra(lst_a, lst_b);
-	if ((*lst_a)->order == (len - 1))
+	if ((*lst_a)->order > (*lst_a)->next->order)
 		ps_sa(lst_a, lst_b);
 }
 
@@ -55,6 +71,6 @@ int		ps_small_sorts(t_num **lst_a, t_num **lst_b, int len)
 	else if (len == 2)
 		ps_sort_two(lst_a, lst_b);
 	else
-		ps_sort_three(lst_a, lst_b, len);
+		ps_sort_three(lst_a, lst_b);
 	return (1);
 }

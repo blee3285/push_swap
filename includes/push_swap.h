@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/23 14:43:55 by blee              #+#    #+#             */
-/*   Updated: 2018/05/31 17:50:43 by blee             ###   ########.fr       */
+/*   Updated: 2018/06/07 17:52:24 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int		ps_unordered(t_num *lst, int len);
 int		ps_small_sorts(t_num **lst_a, t_num **lst_b, int len);
 int		ps_lst_size(t_num *lst);
 void	ps_sort_two(t_num **lst_a, t_num **lst_b);
-void	ps_sort_three(t_num **lst_a, t_num **lst_b, int len);
+void	ps_sort_three(t_num **lst_a, t_num **lst_b);
 int		ps_med_sort(t_num **lst_a, t_num **lst_b, int len);
 
 #endif
