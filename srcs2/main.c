@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/23 15:16:32 by blee              #+#    #+#             */
-/*   Updated: 2018/05/12 18:37:12 by blee             ###   ########.fr       */
+/*   Updated: 2018/06/12 16:49:43 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,7 @@ int	main(int ac, char **av)
 		write(2, "Error\n", 6);
 		return (0);
 	}
-	i = ps_read_cmds(&lst_a, v_flag);
-	print_out(i);
+	print_out(ps_read_cmds(&lst_a, v_flag));
 	ps_freelst(lst_a);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/23 15:15:31 by blee              #+#    #+#             */
-/*   Updated: 2018/06/07 17:50:30 by blee             ###   ########.fr       */
+/*   Updated: 2018/06/12 16:50:07 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,12 +54,12 @@ int	main(int ac, char **av)
 	if (!lst_a)
 		return (ps_error());
 	size = ps_lst_size(lst_a);
-	ft_printf("Sum of dist to sorted: %d\n", ps_unordered(lst_a, size));
+	//ft_printf("Sum of dist to sorted: %d\n", ps_unordered(lst_a, size));
 	if (size > 3)
 		ps_med_sort(&lst_a, &lst_b, size);
 	else
 		ps_small_sorts(&lst_a, &lst_b, size);
-	print_lst(lst_a);
+	//print_lst(lst_a);
 	ps_freelst(lst_a);
 	return (0);
 }
