@@ -1,39 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   big_sort.c                                         :+:      :+:    :+:   */
+/*   big_sort2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/06/03 17:28:35 by blee              #+#    #+#             */
-/*   Updated: 2018/06/15 15:42:12 by blee             ###   ########.fr       */
+/*   Created: 2018/06/15 16:43:39 by blee              #+#    #+#             */
+/*   Updated: 2018/06/15 17:10:08 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		ps_big_sort_b(t_num **lst_a, t_num **lst_b, int len)
+int		sort_top_b(t_num **lst_a, t_num **lst_b, len)
 {
 
-}
-
-int		ps_big_sort(t_num **lst_a, t_num **lst_b, int len)
-{
-	int		mid;
-	int		i;
-
-	mid = len / 2;
-	i = 0;
-	if (len < 4)
-		return (0);
-	while (i < len)
-	{
-		if ((*lst_a)->order < mid)
-			ps_pb(lst_a, lst_b);
-		else
-			ps_ra(lst_a, lst_b);
-		i++;
-	}
-	ps_big_sort(lst_a, lst_b, (len / 2));
-	return (0);
 }
