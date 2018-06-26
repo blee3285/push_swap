@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/03 17:28:35 by blee              #+#    #+#             */
-/*   Updated: 2018/06/20 19:15:41 by blee             ###   ########.fr       */
+/*   Updated: 2018/06/25 17:03:35 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ps_big_sort_b(t_num **lst_a, t_num **lst_b, int min, int max)
 
 	mid = (min + max) / 2;
 	i = 0;
-	if (max - min < 4)
+	if (max - min < 2)
 	{
 		while (*lst_b)
 			ps_pa(lst_a, lst_b);
