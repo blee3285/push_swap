@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/23 14:43:55 by blee              #+#    #+#             */
-/*   Updated: 2018/07/03 18:04:57 by blee             ###   ########.fr       */
+/*   Updated: 2018/07/06 18:12:28 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ t_num	*ps_newlst(int num);
 void	ps_addlst(t_num *lst, t_num *new);
 void	ps_buildlst(t_num **lst, char *num);
 void	ps_freelst(t_num *lst);
+void	print_lst(t_num *lst);
 
 void	ps_sa(t_num **a, t_num **b);
 void	ps_sb(t_num **a, t_num **b);
