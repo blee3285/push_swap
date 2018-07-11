@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/24 16:26:49 by blee              #+#    #+#             */
-/*   Updated: 2018/05/12 18:18:53 by blee             ###   ########.fr       */
+/*   Updated: 2018/07/10 19:53:49 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,26 +32,27 @@ void	ps_addlst(t_num *lst, t_num *new)
 	while (temp->next)
 		temp = temp->next;
 	temp->next = new;
-
 }
 
-void	ps_buildlst(t_num **lst, char *num)
+void	ps_buildlst(t_num **lst, char *num, int flag)
 {
 	t_num	*new;
 	int		i;
 
 	new = NULL;
 	i = 0;
+	if (flag && num[0] == '-' && num [1] == 'v')
+		i += 2;
 	while (num[i])
 	{
-		if (ft_isdigit(num[i]) || num[i] == '-')
+		if (ft_isdigit(num[i]))
 		{
 			new = ps_newlst(ft_atoi(&num[i]));
 			if (!*lst)
 				*lst = new;
 			else
 				ps_addlst(*lst, new);
-			while (ft_isdigit(num[i]) || num[i])
+			while (num[i] && ft_isdigit(num[i]))
 				i++;
 			i--;
 		}

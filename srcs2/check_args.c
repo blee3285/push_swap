@@ -6,24 +6,27 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/05 16:12:51 by blee              #+#    #+#             */
-/*   Updated: 2018/05/12 18:31:08 by blee             ###   ########.fr       */
+/*   Updated: 2018/07/10 19:52:04 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-int		is_valid(char *str)
+int		is_valid(char *str, int flag)
 {
 	int			i;
 
 	i = 0;
+	if (flag)
+		if (str[0] == '-' && str[1] == 'v')
+			i += 2;
 	while (str[i])
 	{
-		if (ft_isdigit(str[i]) || str[i] == '-')
+		if (ft_isdigit(str[i]))
 		{
 			if (!int_max_check(&str[i]))
 				return (0);
-			while (ft_isdigit(str[i]) || str[i] == '-')
+			while (ft_isdigit(str[i]))
 				i++;
 		}
 		else if (str[i] == ' ')
@@ -66,7 +69,7 @@ int		no_dups(t_num *lst)
 	return (1);
 }
 
-t_num	*ps_check_args(int ac, char **av)
+t_num	*ps_check_args(int ac, char **av, int flag)
 {
 	t_num	*lst;
 	int		i;
@@ -75,12 +78,10 @@ t_num	*ps_check_args(int ac, char **av)
 	lst = NULL;
 	i = 1;
 	ret = 1;
-	if (av[1][0] == '-' && av[1][1] == 'v')
-		i++;
 	while (i < ac && ret)
 	{
-		if (is_valid(av[i]))
-			ps_buildlst(&lst, av[i]);
+		if (is_valid(av[i], flag))
+			ps_buildlst(&lst, av[i], flag);
 		else
 			ret = 0;
 		i++;

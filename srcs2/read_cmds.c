@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/05 17:13:05 by blee              #+#    #+#             */
-/*   Updated: 2018/05/12 15:58:34 by blee             ###   ########.fr       */
+/*   Updated: 2018/07/10 19:12:40 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,6 @@ int		valid_cmd(char *cmd, char **names)
 			return (1);
 	}
 	return (0);
-}
-
-void	do_cmd(char *cmd, t_num **lst_a, t_num **lst_b, swapf *cmds, int v)
-{
-	int		id;
-
-	id = cmd_id(cmd);
-	cmds[id](lst_a, lst_b);
-	if (v)
-	{
-		ft_printf("Exec %s:\n", cmd);
-		ps_print_lst(*lst_a, *lst_b);
-	}
 }
 
 int		is_sorted(t_num *lst_a, t_num *lst_b)
@@ -63,6 +50,15 @@ int		is_sorted(t_num *lst_a, t_num *lst_b)
 	return (1);
 }
 
+void	print_cmd(t_num *lst_a, t_num *lst_b, char *cmd, int v)
+{
+	if (v)
+	{
+		ft_printf("Exec %s\n", cmd);
+		ps_print_lst(lst_a, lst_b);
+	}
+}
+
 int		ps_do_cmds(t_num **lst_a, t_num **lst_b, int v)
 {
 	int		ret;
@@ -76,7 +72,10 @@ int		ps_do_cmds(t_num **lst_a, t_num **lst_b, int v)
 	while ((ret != -1) && (ret = get_next_line(0, &buff)))
 	{
 		if (valid_cmd(buff, names))
-			do_cmd(buff, lst_a, lst_b, cmds, v);
+		{
+			cmds[cmd_id(buff)](lst_a, lst_b);
+			print_cmd(*lst_a, *lst_b, buff, v);
+		}
 		else
 			ret = -1;
 	}

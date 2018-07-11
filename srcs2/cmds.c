@@ -6,13 +6,13 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/28 17:17:00 by blee              #+#    #+#             */
-/*   Updated: 2018/05/07 17:23:04 by blee             ###   ########.fr       */
+/*   Updated: 2018/07/10 16:50:50 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-swapf	*ps_init_cmds()
+swapf	*ps_init_cmds(void)
 {
 	swapf	*cmds;
 
@@ -34,7 +34,7 @@ swapf	*ps_init_cmds()
 	return (cmds);
 }
 
-char	**ps_cmd_names()
+char	**ps_cmd_names(void)
 {
 	char	**names;
 
@@ -56,7 +56,7 @@ char	**ps_cmd_names()
 	return (names);
 }
 
-int		cmd_id(char* name)
+int		cmd_id(char *name)
 {
 	int		i;
 	int		id;

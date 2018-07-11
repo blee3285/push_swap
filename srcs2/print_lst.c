@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 18:42:44 by blee              #+#    #+#             */
-/*   Updated: 2018/05/12 15:56:11 by blee             ###   ########.fr       */
+/*   Updated: 2018/07/10 18:35:12 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		print_one_num(t_num *lst, int cur, int len)
 		ft_putchar(' ');
 	return (0);
 }
-
+/*
 void	ps_print_lst(t_num *lst_a, t_num *lst_b)
 {
 	int		a_len;
@@ -63,4 +63,24 @@ void	ps_print_lst(t_num *lst_a, t_num *lst_b)
 	}
 	ft_printf("_ _\na b\n");
 	ft_printf("-----\n");
+}
+*/
+void	print_lst(t_num *lst)
+{
+	if (lst)
+		ft_printf("%d ", lst->num);
+	else
+		return ;
+	if (lst->next)
+		print_lst(lst->next);
+}
+
+void	ps_print_lst(t_num *lst_a, t_num *lst_b)
+{
+	ft_putstr("A: ");
+	print_lst(lst_a);
+	ft_putstr("\n");
+	ft_putstr("B: ");
+	print_lst(lst_b);
+	ft_putstr("\n----------\n");
 }
