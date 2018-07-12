@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/05 17:13:05 by blee              #+#    #+#             */
-/*   Updated: 2018/07/10 19:12:40 by blee             ###   ########.fr       */
+/*   Updated: 2018/07/11 17:47:01 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int		ps_do_cmds(t_num **lst_a, t_num **lst_b, int v)
 {
 	int		ret;
 	char	*buff;
-	swapf	*cmds;
+	t_swapf	*cmds;
 	char	**names;
 
 	cmds = ps_init_cmds();

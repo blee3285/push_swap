@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/03 17:28:35 by blee              #+#    #+#             */
-/*   Updated: 2018/07/10 18:31:23 by blee             ###   ########.fr       */
+/*   Updated: 2018/07/11 19:45:23 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	ps_big_sort(t_num **lst_a, t_num **lst_b, int min, int max)
 			ps_sa(lst_a, lst_b);
 		return ;
 	}
-	push_to_a(lst_a, lst_b, min, max);
+	push_to_b(lst_a, lst_b, min, max);
 	ps_big_sort(lst_a, lst_b, mid, max);
 	quick_sort_b(lst_a, lst_b, min, (mid - 1));
 }

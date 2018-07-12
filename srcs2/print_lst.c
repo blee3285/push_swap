@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/09 18:42:44 by blee              #+#    #+#             */
-/*   Updated: 2018/07/10 18:35:12 by blee             ###   ########.fr       */
+/*   Updated: 2018/07/11 17:13:49 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,44 +27,6 @@ int		lst_len(t_num *lst)
 	return (i);
 }
 
-int		print_one_num(t_num *lst, int cur, int len)
-{
-	if (len >= cur)
-	{
-		ft_putnbr(lst->num);
-		return (1);
-	}
-	else
-		ft_putchar(' ');
-	return (0);
-}
-/*
-void	ps_print_lst(t_num *lst_a, t_num *lst_b)
-{
-	int		a_len;
-	int		b_len;
-	int		cur;
-
-	a_len = lst_len(lst_a);
-	b_len = lst_len(lst_b);
-	if (a_len > b_len)
-		cur = a_len;
-	else
-		cur = b_len;
-	while (cur > 0)
-	{
-		if (print_one_num(lst_a, cur, a_len))
-			lst_a = lst_a->next;
-		ft_putchar(' ');
-		if (print_one_num(lst_b, cur, b_len))
-			lst_b = lst_b->next;
-		ft_putchar('\n');
-		cur--;
-	}
-	ft_printf("_ _\na b\n");
-	ft_printf("-----\n");
-}
-*/
 void	print_lst(t_num *lst)
 {
 	if (lst)

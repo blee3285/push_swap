@@ -6,20 +6,20 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/28 17:17:00 by blee              #+#    #+#             */
-/*   Updated: 2018/07/10 16:50:50 by blee             ###   ########.fr       */
+/*   Updated: 2018/07/11 18:05:21 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-swapf	*ps_init_cmds(void)
+t_swapf	*ps_init_cmds(void)
 {
-	swapf	*cmds;
+	t_swapf	*cmds;
 
-	cmds = (swapf*)malloc(sizeof(swapf*) * 50);
+	cmds = (t_swapf*)malloc(sizeof(t_swapf*) * 50);
 	if (!cmds)
 		return (NULL);
-	ft_bzero(cmds, sizeof(swapf*) * 50);
+	ft_bzero(cmds, sizeof(t_swapf*) * 50);
 	cmds[cmd_id("sa")] = &ps_sa;
 	cmds[cmd_id("sb")] = &ps_sb;
 	cmds[cmd_id("ss")] = &ps_ss;

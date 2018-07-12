@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/23 15:15:31 by blee              #+#    #+#             */
-/*   Updated: 2018/07/10 16:16:05 by blee             ###   ########.fr       */
+/*   Updated: 2018/07/11 19:46:41 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int		main(int ac, char **av)
 	if (!lst_a)
 		return (ps_error());
 	size = ps_lst_size(lst_a);
-	if (size > 40)
+	if (size > 3)
 		ps_big_sort(&lst_a, &lst_b, 1, size);
 	else if (size > 3)
 		ps_med_sort(&lst_a, &lst_b, size);
