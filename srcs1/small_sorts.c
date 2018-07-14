@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/17 16:16:57 by blee              #+#    #+#             */
-/*   Updated: 2018/06/07 17:53:43 by blee             ###   ########.fr       */
+/*   Updated: 2018/07/13 18:46:22 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,9 @@ int		ps_small_sorts(t_num **lst_a, t_num **lst_b, int len)
 		return (1);
 	else if (len == 2)
 		ps_sort_two(lst_a, lst_b);
-	else
+	else if (len == 3)
 		ps_sort_three(lst_a, lst_b);
+	else
+		ps_sort_four_plus(lst_a, lst_b, len);
 	return (1);
 }

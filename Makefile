@@ -6,7 +6,7 @@
 #    By: blee <blee@student.42.us.org>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/09/18 14:11:04 by blee              #+#    #+#              #
-#    Updated: 2018/07/10 16:29:49 by blee             ###   ########.fr        #
+#    Updated: 2018/07/13 18:31:10 by blee             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRC_FILES1 = main.c \
 			 rrotate.c \
 			 swap.c \
 			 small_sorts.c \
+			 small_sorts2.c \
 			 med_sort.c \
 			 big_sort.c \
 			 big_sort2.c
