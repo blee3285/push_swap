@@ -6,7 +6,7 @@
 /*   By: blee <blee@student.42.us.org>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/05 17:13:05 by blee              #+#    #+#             */
-/*   Updated: 2018/07/11 17:47:01 by blee             ###   ########.fr       */
+/*   Updated: 2018/07/16 16:43:09 by blee             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ int		ps_do_cmds(t_num **lst_a, t_num **lst_b, int v)
 		}
 		else
 			ret = -1;
+		free(buff);
 	}
 	free(cmds);
 	ps_free_names(names);
