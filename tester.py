@@ -16,8 +16,8 @@ while (i < itterations):
 	if len(out) == 0:
 		continue
 	average += len(out)
-        solution = ''.join(out)
-        p = subprocess.Popen(["./checker " + numbers], shell=True, stdin=subprocess.PIPE)
-        p.stdin.write(solution)
-        i = i + 1
+        #solution = ''.join(out)
+        #p = subprocess.Popen(["./checker " + numbers], shell=True, stdin=subprocess.PIPE)
+        #p.stdin.write(solution)
+        #i = i + 1
 print "Average operations = ", average / itterations
